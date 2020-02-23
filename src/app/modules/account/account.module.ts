@@ -9,6 +9,10 @@ import { AccountActionsComponent } from "./components/account-actions/account-ac
 import { AccountListComponent } from "./components/account-list/account-list.component";
 import { AccountDialogComponent } from "./components/dialogs/account-dialog/account-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatStepperModule } from "@angular/material/stepper";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatTableModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class AccountModule {}
