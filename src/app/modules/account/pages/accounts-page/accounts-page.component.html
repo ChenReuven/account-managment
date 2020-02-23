@@ -1,2 +1,9 @@
-<app-account-actions [selectedItem]="selectedAccount"></app-account-actions>
+<app-account-actions
+  (addUser)="onAddUser()"
+  (addAdmin)="onAddAdmin()"
+  (edit)="onEditAccount($event)"
+  [selectedItem]="selectedAccount"
+></app-account-actions>
 <app-account-list (selected)="onRowSelected($event)"></app-account-list>
+
+<pre>{{ selectedAccount | json }}</pre>

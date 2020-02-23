@@ -1,5 +1,5 @@
 <div>
-  <button mat-flat-button color="primary">Add Account</button>
-  <button mat-flat-button color="primary">Add Administrator Account</button>
-  <button mat-flat-button color="primary" [disabled]="!selectedItem">Edit</button>
+  <button mat-flat-button color="primary" (click)="this.addUser.emit()">Add Account</button>
+  <button mat-flat-button color="primary" (click)="this.addAdmin.emit()">Add Administrator Account</button>
+  <button mat-flat-button color="primary" (click)="edit.emit(selectedItem)" [disabled]="!selectedItem">Edit</button>
 </div>

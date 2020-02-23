@@ -45,7 +45,7 @@ Entities/Domain:
 
 
 Use Cases:
-- show all accounts
+- show all accounts - V
 - add account (user)
 - update account
 - add account (admin)
@@ -53,7 +53,7 @@ Use Cases:
 --------------------------------------------------
 
 Pages:
-1. account list to update
+1. account list to update - V
 3. 3 forms
 
 Forms:

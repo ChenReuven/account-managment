@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "app-account-actions",
@@ -7,4 +7,7 @@ import { Component, Input } from "@angular/core";
 })
 export class AccountActionsComponent {
   @Input() selectedItem: Account;
+  @Output() addUser = new EventEmitter();
+  @Output() addAdmin = new EventEmitter();
+  @Output() edit = new EventEmitter<Account>();
 }
