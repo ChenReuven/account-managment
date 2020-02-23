@@ -5,9 +5,11 @@ import { MatTableModule } from "@angular/material/table";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatButtonModule } from "@angular/material/button";
+import { AccountActionsComponent } from "./components/account-actions/account-actions.component";
+import { AccountListComponent } from "./components/account-list/account-list.component";
 
 @NgModule({
-  declarations: [AccountsPageComponent],
+  declarations: [AccountsPageComponent, AccountActionsComponent, AccountListComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTableModule, MatCheckboxModule, MatButtonModule]
 })
 export class AccountModule {}
