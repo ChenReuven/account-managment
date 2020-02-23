@@ -1,7 +1,7 @@
 import { Account } from "../models/account.model";
 import { RoleType } from "../models/role-type.enum";
 
-const accountsMock: Account[] = [
+export const accountsMock: Account[] = [
   {
     id: "1",
     userName: "MoshikG",
