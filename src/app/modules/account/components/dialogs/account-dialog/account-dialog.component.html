@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Account</h2>
 <mat-dialog-content class="mat-typography">
   <mat-horizontal-stepper #stepper>
     <mat-step>
@@ -8,10 +8,15 @@
           <mat-label>Safe List</mat-label>
           <mat-select formControlName="safeId">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let safe of safeList" value="safe.id">{{safe.name}}</mat-option>
+            <mat-option *ngFor="let safe of safeList" value="{{safe.id}}">{{
+              safe.name
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <div>
+        <mat-dialog-actions align="center">
+          <button mat-button mat-dialog-close>
+            Cancel
+          </button>
           <button
             mat-button
             matStepperNext
@@ -19,7 +24,7 @@
           >
             Next
           </button>
-        </div>
+        </mat-dialog-actions>
       </form>
     </mat-step>
     <mat-step>
@@ -27,47 +32,58 @@
         <div>
           <ng-template matStepLabel>Details</ng-template>
           <mat-form-field>
-            <mat-label>Details</mat-label>
+            <mat-label>User Name</mat-label>
             <input
               matInput
-              placeholder="User Name"
+              placeholder="Insert User Name"
               formControlName="userName"
               required
+              maxlength="60"
             />
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
-            <mat-label>Details</mat-label>
+            <mat-label>Password</mat-label>
             <input
               matInput
-              placeholder="Password"
+              placeholder="Insert Password"
               formControlName="password"
+              type="password"
               required
+              pattern="^(?=.*?[a-z])(?=.*?[A-Z]).*$"
             />
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
-            <mat-label>Details</mat-label>
+            <mat-label>Mail</mat-label>
             <input
               matInput
               placeholder="Mail"
               formControlName="mail"
               required
+              type="email"
+              name="email"
             />
           </mat-form-field>
         </div>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
+        <mat-dialog-actions align="center">
+          <button mat-button matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-button
+            matStepperNext
+            [disabled]="accountFormGroup.get('details').invalid"
+          >
+            Submit
+          </button>
+        </mat-dialog-actions>
       </form>
     </mat-step>
   </mat-horizontal-stepper>
-
-  <pre>{{ accountFormGroup.value | json }}</pre>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
+
+<mat-slide-toggle (change)="devMode=!devMode">Dev Mode</mat-slide-toggle>
+<pre *ngIf="devMode">{{ accountFormGroup.value | json }}</pre>

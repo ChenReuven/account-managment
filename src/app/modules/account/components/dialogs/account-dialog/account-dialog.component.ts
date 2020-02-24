@@ -10,6 +10,7 @@ import { safeListMock } from "../../../data/mocks/safe-list.mock";
 export class AccountDialogComponent implements OnInit {
   accountFormGroup: FormGroup;
   safeList = safeListMock;
+  devMode: boolean;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -19,7 +20,7 @@ export class AccountDialogComponent implements OnInit {
       details: this.formBuilder.group({
         userName: ["", Validators.required],
         password: ["", Validators.required],
-        mail: ["", Validators.required]
+        mail: ["", Validators.compose([Validators.required, Validators.email])]
       })
     });
   }
