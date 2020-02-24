@@ -47,7 +47,7 @@ Entities/Domain:
 Use Cases:
 - show all accounts - V
 - add account (user) - V
-- update account
+- update account - V
 - add account (admin)
 
 --------------------------------------------------

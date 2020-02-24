@@ -8,11 +8,13 @@
           <mat-label>Safe List</mat-label>
           <mat-select formControlName="safeId">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let safe of safeList" value="{{safe.id}}">{{
+            <mat-option *ngFor="let safe of safeList" value="{{ safe.id }}">{{
               safe.name
             }}</mat-option>
           </mat-select>
-          <mat-error *ngIf="accountFormGroup.get('safeId').hasError('required')">
+          <mat-error
+            *ngIf="accountFormGroup.get('safeId').hasError('required')"
+          >
             Safe Selection <strong>required</strong>
           </mat-error>
         </mat-form-field>
@@ -43,7 +45,14 @@
               required
               maxlength="60"
             />
-            <mat-error *ngIf="accountFormGroup.get('details').get('userName').hasError('required')">
+            <mat-error
+              *ngIf="
+                accountFormGroup
+                  .get('details')
+                  .get('userName')
+                  .hasError('required')
+              "
+            >
               User Name <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -59,11 +68,26 @@
               required
               pattern="^(?=.*?[a-z])(?=.*?[A-Z]).*$"
             />
-            <mat-error *ngIf="accountFormGroup.get('details').get('password').hasError('required')">
+            <mat-error
+              *ngIf="
+                accountFormGroup
+                  .get('details')
+                  .get('password')
+                  .hasError('required')
+              "
+            >
               password is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="accountFormGroup.get('details').get('password').hasError('pattern')">
-              should have at least <strong>one upper case letter and one lower case letter</strong>
+            <mat-error
+              *ngIf="
+                accountFormGroup
+                  .get('details')
+                  .get('password')
+                  .hasError('pattern')
+              "
+            >
+              should have at least
+              <strong>one upper case letter and one lower case letter</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -78,10 +102,24 @@
               type="email"
               name="email"
             />
-            <mat-error *ngIf="accountFormGroup.get('details').get('mail').hasError('required')">
+            <mat-error
+              *ngIf="
+                accountFormGroup
+                  .get('details')
+                  .get('mail')
+                  .hasError('required')
+              "
+            >
               mail is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="accountFormGroup.get('details').get('mail').hasError('email')">
+            <mat-error
+              *ngIf="
+                accountFormGroup
+                  .get('details')
+                  .get('mail')
+                  .hasError('email')
+              "
+            >
               email is <strong>invalid</strong>
             </mat-error>
           </mat-form-field>
@@ -93,7 +131,48 @@
           <button
             mat-button
             matStepperNext
+            *ngIf="accountRoleType === RoleType.ADMIN"
             [disabled]="accountFormGroup.get('details').invalid"
+          >
+            Next
+          </button>
+          <button
+            mat-button
+            matStepperNext
+            *ngIf="accountRoleType !== RoleType.ADMIN"
+            [disabled]="accountFormGroup.get('details').invalid"
+            (click)="onSubmit(accountFormGroup)"
+            [mat-dialog-close]="accountFormGroup.value"
+          >
+            Submit
+          </button>
+        </mat-dialog-actions>
+      </form>
+    </mat-step>
+    <mat-step *ngIf="accountRoleType === RoleType.ADMIN">
+      <ng-template matStepLabel>Additional Details</ng-template>
+      <form [formGroup]="accountFormGroup">
+        <label>Choose an administrator group</label>
+        <mat-radio-group
+          formControlName="adminGroup"
+          class="admin-groups-radio-group"
+        >
+          <mat-radio-button
+            *ngFor="let adminGroup of adminGroups"
+            [value]="adminGroup.id"
+            class="admin-group-radio-button"
+          >
+            {{ adminGroup.name }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-dialog-actions align="center">
+          <button mat-button matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-button
+            matStepperNext
+            [disabled]="accountFormGroup.get('adminGroup').invalid"
             (click)="onSubmit(accountFormGroup)"
             [mat-dialog-close]="accountFormGroup.value"
           >
@@ -105,5 +184,5 @@
   </mat-horizontal-stepper>
 </mat-dialog-content>
 
-<mat-slide-toggle (change)="devMode=!devMode">Dev Mode</mat-slide-toggle>
+<mat-slide-toggle (change)="devMode = !devMode">Dev Mode</mat-slide-toggle>
 <pre *ngIf="devMode">{{ accountFormGroup.value | json }}</pre>

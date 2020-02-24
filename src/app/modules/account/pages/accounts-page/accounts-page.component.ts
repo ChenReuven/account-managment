@@ -11,8 +11,7 @@ import { MatDialog } from "@angular/material/dialog";
 export class AccountsPageComponent {
   selectedAccount: Account;
 
-  constructor(private dialog: MatDialog) {
-  }
+  constructor(private dialog: MatDialog) {}
 
   onRowSelected(row: Account) {
     this.selectedAccount = row;
