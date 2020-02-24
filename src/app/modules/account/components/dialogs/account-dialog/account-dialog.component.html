@@ -94,6 +94,8 @@
             mat-button
             matStepperNext
             [disabled]="accountFormGroup.get('details').invalid"
+            (click)="onSubmit(accountFormGroup)"
+            [mat-dialog-close]="accountFormGroup.value"
           >
             Submit
           </button>

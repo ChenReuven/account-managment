@@ -18,10 +18,18 @@ export class AccountDialogComponent implements OnInit {
     this.accountFormGroup = this.formBuilder.group({
       safeId: ["", Validators.required],
       details: this.formBuilder.group({
-        userName: ["", Validators.compose([Validators.maxLength(60), Validators.required])],
+        userName: [
+          "",
+          Validators.compose([Validators.maxLength(60), Validators.required])
+        ],
         password: ["", Validators.required],
         mail: ["", Validators.compose([Validators.required, Validators.email])]
       })
     });
+  }
+
+  onSubmit(accountFormGroup: FormGroup) {
+    // That value will go to the server via data app layer
+    console.log(accountFormGroup.value);
   }
 }
