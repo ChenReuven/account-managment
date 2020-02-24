@@ -18,7 +18,7 @@ export class AccountDialogComponent implements OnInit {
     this.accountFormGroup = this.formBuilder.group({
       safeId: ["", Validators.required],
       details: this.formBuilder.group({
-        userName: ["", Validators.required],
+        userName: ["", Validators.compose([Validators.maxLength(60), Validators.required])],
         password: ["", Validators.required],
         mail: ["", Validators.compose([Validators.required, Validators.email])]
       })
