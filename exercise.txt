@@ -46,7 +46,7 @@ Entities/Domain:
 
 Use Cases:
 - show all accounts - V
-- add account (user)
+- add account (user) - V
 - update account
 - add account (admin)
 
@@ -120,3 +120,7 @@ Questions?
 1. why we need user entity?
 2. what safe entity contain? name and id?
 3. "we might have a similar use of these forms for the other entities" - i think its related to reusability in general, But i dont see any other entity that fit to this "Account" specific form stepper
+
+
+Shay Saffer <Shay.Saffer@cyberark.com>
+Shiri Haim <Shiri.Haim@cyberark.com>

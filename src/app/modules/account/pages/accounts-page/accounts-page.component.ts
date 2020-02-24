@@ -32,7 +32,10 @@ export class AccountsPageComponent {
 
   openDialog(selectedAccount?: Account): void {
     const dialogRef = this.dialog.open(AccountDialogComponent, {
-      width: "500px"
+      width: "500px",
+      data: {
+        selectedAccount
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

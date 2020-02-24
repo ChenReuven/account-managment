@@ -5,7 +5,7 @@ export const accountsMock: Account[] = [
   {
     id: "1",
     userName: "MoshikG",
-    password: "111",
+    password: "sadsaASDAsds",
     mail: "moshikg@gmail.com",
     role: RoleType.ADMIN,
     safeId: "1",
@@ -16,7 +16,7 @@ export const accountsMock: Account[] = [
   {
     id: "2",
     userName: "YanaL",
-    password: "222",
+    password: "yuidsASWDSdsfd",
     mail: "yanal@gmail.com",
     role: RoleType.USER,
     safeId: "2",
