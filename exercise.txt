@@ -4,12 +4,12 @@ We have an accounts management web application. The application presents differe
 
 The forms should be as follows:
 
- 
+
 
 Add account – on the left side should be a stepper, and on the right side should be two steps: the first is to choose a safe from a list of safes. The second should be 3 inputs for username, password, and mail. The password should have at least one upper case letter and one lower case letter. The name should be a maximum of 60 characters. On the bottom of the first step, a Next button should appear, and on the second step, a previous button and submit button should be added. (nothing really should be done for now on submit, except client-side validations as mentioned above.
 Update account – allow updating the details from step 2 of Add account. The same validation here too and button of submitting who validate the inputs.
 Add administrator account – the left side is a stepper, and the first two steps are similar to the Add account. The third step is for additional information about administrator accounts – a label: Choose an administrator group. Under the label will be 4 radio buttons with labels: admin1, admin2, admin3, and admin4. The submit button should be added, and on submit, you should check the validation from step 2 and also from step 3, validate that at least and only one radio button is checked. Then print to console the selected values from all of the steps (i.e., the values the theoretically should be send to the server).
- 
+
 
 Guidelines:
 
@@ -48,7 +48,7 @@ Use Cases:
 - show all accounts - V
 - add account (user) - V
 - update account - V
-- add account (admin)
+- add account (admin) - V
 
 --------------------------------------------------
 

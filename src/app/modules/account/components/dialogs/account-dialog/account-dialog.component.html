@@ -141,7 +141,6 @@
             matStepperNext
             *ngIf="accountRoleType !== RoleType.ADMIN"
             [disabled]="accountFormGroup.get('details').invalid"
-            (click)="onSubmit(accountFormGroup)"
             [mat-dialog-close]="accountFormGroup.value"
           >
             Submit
@@ -173,7 +172,6 @@
             mat-button
             matStepperNext
             [disabled]="accountFormGroup.get('adminGroup').invalid"
-            (click)="onSubmit(accountFormGroup)"
             [mat-dialog-close]="accountFormGroup.value"
           >
             Submit

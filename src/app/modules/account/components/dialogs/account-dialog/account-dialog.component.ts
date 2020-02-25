@@ -40,9 +40,4 @@ export class AccountDialogComponent implements OnInit {
       })
     });
   }
-
-  onSubmit(accountFormGroup: FormGroup) {
-    // That value will go to the server via data app layer
-    console.log(accountFormGroup.value);
-  }
 }

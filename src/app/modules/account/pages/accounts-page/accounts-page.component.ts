@@ -38,7 +38,14 @@ export class AccountsPageComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
+      if (result) {
+        console.log(
+          "%c Account Value For Send To Server = ",
+          "background: #222; color: #bada55; font-size: 16px;",
+          result
+        );
+        // TODO: In real app we will move the value to data layer that call to server
+      }
     });
   }
 }
