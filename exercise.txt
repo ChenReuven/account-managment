@@ -93,6 +93,9 @@ Add administrator account Form:
 
 
 General:
+- add dynamic only when need the administrator group
+- component seperation
+- reusability of components
 1. Data Layer?
 2. immetate mock data with observable
 3. showcase
@@ -103,8 +106,8 @@ General:
 Workflow:
 1. prettier! - Done
 2. tslint! - Done
-3. add CI? - ?
-4. add angular material - 
+3. add CI? - Done
+4. add angular material - Done
 
 
 Guidelines:
