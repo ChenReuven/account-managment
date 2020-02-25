@@ -93,7 +93,7 @@ Add administrator account Form:
 
 
 General:
-- add dynamic only when need the administrator group
+- add dynamic only when need the administrator group - *
 - component seperation
 - reusability of components
 1. Data Layer?
@@ -102,6 +102,7 @@ General:
 4. show design - show the process of the thinking about the solution
 5. use specator to tests (one with and one without)
 6. show layout before start coding
+7. tests
 
 Workflow:
 1. prettier! - Done

@@ -15,13 +15,15 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatRadioModule } from "@angular/material/radio";
+import { AccountStepperComponent } from "./components/account-stepper/account-stepper.component";
 
 @NgModule({
   declarations: [
     AccountsPageComponent,
     AccountActionsComponent,
     AccountListComponent,
-    AccountDialogComponent
+    AccountDialogComponent,
+    AccountStepperComponent
   ],
   imports: [
     CommonModule,
