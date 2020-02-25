@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Account } from "../../data/models/account.model";
 import { AccountDialogComponent } from "../../components/dialogs/account-dialog/account-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
+import { UpdateAccount } from "../../data/dto/update-account.dto";
 
 @Component({
   selector: "app-accounts-page",
@@ -37,12 +38,13 @@ export class AccountsPageComponent {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: UpdateAccount) => {
       if (result) {
+        const updateAccountDto: UpdateAccount = result;
         console.log(
           "%c Account Value For Send To Server = ",
           "background: #222; color: #bada55; font-size: 16px;",
-          result
+          updateAccountDto
         );
         // TODO: In real app we will move the value to data layer that call to server
       }
