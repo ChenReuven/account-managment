@@ -1,0 +1,30 @@
+
+  <form [formGroup]="accountFormGroup">
+    <mat-form-field>
+      <mat-label>Safe List</mat-label>
+      <mat-select formControlName="safeId">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let safe of safeList" value="{{ safe.id }}">
+          {{safe.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="accountFormGroup.get('safeId').hasError('required')"
+      >
+        Safe Selection <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close>
+        Cancel
+      </button>
+      <button
+        mat-button
+        matStepperNext
+        [disabled]="accountFormGroup.get('safeId').invalid"
+      >
+        Next
+      </button>
+    </mat-dialog-actions>
+  </form>
+

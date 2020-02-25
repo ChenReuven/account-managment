@@ -1,0 +1,25 @@
+<form [formGroup]="accountFormGroup">
+  <label>Choose an administrator group</label>
+  <mat-radio-group formControlName="adminGroup" class="admin-groups-radio-group">
+    <mat-radio-button
+      *ngFor="let adminGroup of adminGroups"
+      [value]="adminGroup.id"
+      class="admin-group-radio-button"
+    >
+      {{ adminGroup.name }}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-dialog-actions align="center">
+    <button mat-button matStepperPrevious>
+      Back
+    </button>
+    <button
+      mat-button
+      matStepperNext
+      [disabled]="accountFormGroup.get('adminGroup').invalid"
+      [mat-dialog-close]="accountFormGroup.value"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -1,182 +1,26 @@
 <mat-horizontal-stepper #stepper>
   <mat-step>
-    <form [formGroup]="accountFormGroup">
-      <ng-template matStepLabel>Choose Safe</ng-template>
-      <mat-form-field>
-        <mat-label>Safe List</mat-label>
-        <mat-select formControlName="safeId">
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let safe of safeList" value="{{ safe.id }}">{{
-            safe.name
-            }}</mat-option>
-        </mat-select>
-        <mat-error
-          *ngIf="accountFormGroup.get('safeId').hasError('required')"
-        >
-          Safe Selection <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <mat-dialog-actions align="center">
-        <button mat-button mat-dialog-close>
-          Cancel
-        </button>
-        <button
-          mat-button
-          matStepperNext
-          [disabled]="accountFormGroup.get('safeId').invalid"
-        >
-          Next
-        </button>
-      </mat-dialog-actions>
-    </form>
+    <ng-template matStepLabel>Choose Safe</ng-template>
+    <app-safe-step
+      [safeList]="safeList"
+      [accountFormGroup]="accountFormGroup"
+    ></app-safe-step>
   </mat-step>
   <mat-step>
-    <form [formGroup]="accountFormGroup.get('details')">
-      <div>
-        <ng-template matStepLabel>Details</ng-template>
-        <mat-form-field>
-          <mat-label>User Name</mat-label>
-          <input
-            matInput
-            placeholder="Insert User Name"
-            formControlName="userName"
-            required
-            maxlength="60"
-          />
-          <mat-error
-            *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('userName')
-                  .hasError('required')
-              "
-          >
-            User Name <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <mat-label>Password</mat-label>
-          <input
-            matInput
-            placeholder="Insert Password"
-            formControlName="password"
-            type="password"
-            required
-            pattern="^(?=.*?[a-z])(?=.*?[A-Z]).*$"
-          />
-          <mat-error
-            *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('password')
-                  .hasError('required')
-              "
-          >
-            password is <strong>required</strong>
-          </mat-error>
-          <mat-error
-            *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('password')
-                  .hasError('pattern')
-              "
-          >
-            should have at least
-            <strong>one upper case letter and one lower case letter</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <mat-label>Mail</mat-label>
-          <input
-            matInput
-            placeholder="Mail"
-            formControlName="mail"
-            required
-            type="email"
-            name="email"
-          />
-          <mat-error
-            *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('mail')
-                  .hasError('required')
-              "
-          >
-            mail is <strong>required</strong>
-          </mat-error>
-          <mat-error
-            *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('mail')
-                  .hasError('email')
-              "
-          >
-            email is <strong>invalid</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <mat-dialog-actions align="center">
-        <button mat-button matStepperPrevious>
-          Back
-        </button>
-        <button
-          mat-button
-          matStepperNext
-          *ngIf="accountRoleType === RoleType.ADMIN"
-          [disabled]="accountFormGroup.get('details').invalid"
-        >
-          Next
-        </button>
-        <button
-          mat-button
-          matStepperNext
-          *ngIf="accountRoleType !== RoleType.ADMIN"
-          [disabled]="accountFormGroup.get('details').invalid"
-          [mat-dialog-close]="accountFormGroup.value"
-        >
-          Submit
-        </button>
-      </mat-dialog-actions>
-    </form>
+    <ng-template matStepLabel>Details</ng-template>
+    <app-account-details-step
+      [accountFormGroup]="accountFormGroup"
+    ></app-account-details-step>
   </mat-step>
   <mat-step *ngIf="accountRoleType === RoleType.ADMIN">
     <ng-template matStepLabel>Additional Details</ng-template>
-    <form [formGroup]="accountFormGroup">
-      <label>Choose an administrator group</label>
-      <mat-radio-group
-        formControlName="adminGroup"
-        class="admin-groups-radio-group"
-      >
-        <mat-radio-button
-          *ngFor="let adminGroup of adminGroups"
-          [value]="adminGroup.id"
-          class="admin-group-radio-button"
-        >
-          {{ adminGroup.name }}
-        </mat-radio-button>
-      </mat-radio-group>
-      <mat-dialog-actions align="center">
-        <button mat-button matStepperPrevious>
-          Back
-        </button>
-        <button
-          mat-button
-          matStepperNext
-          [disabled]="accountFormGroup.get('adminGroup').invalid"
-          [mat-dialog-close]="accountFormGroup.value"
-        >
-          Submit
-        </button>
-      </mat-dialog-actions>
-    </form>
+    <app-admin-groups-step
+      [accountFormGroup]="accountFormGroup"
+      [adminGroups]="adminGroups"
+    ></app-admin-groups-step>
   </mat-step>
 </mat-horizontal-stepper>
-<mat-slide-toggle (change)="devMode = !devMode">Dev Mode</mat-slide-toggle>
-<pre *ngIf="devMode">{{ accountFormGroup.value | json }}</pre>
+<ng-container>
+    <mat-slide-toggle (change)="devMode = !devMode">Dev Mode</mat-slide-toggle>
+  <pre *ngIf="devMode">{{ accountFormGroup.value | json }}</pre>
+</ng-container>

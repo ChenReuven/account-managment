@@ -8,7 +8,7 @@ import { RoleType } from "../../data/models/role-type.enum";
 @Component({
   selector: "app-account-stepper",
   templateUrl: "./account-stepper.component.html",
-  styleUrls: ["./account-stepper.component.scss"]
+  styleUrls: ["./account-stepper.component.scss"],
 })
 export class AccountStepperComponent implements OnInit {
   @Input() safeList: Safe[];
