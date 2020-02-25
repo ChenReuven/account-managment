@@ -8,12 +8,13 @@ import { RoleType } from "../../data/models/role-type.enum";
 @Component({
   selector: "app-account-stepper",
   templateUrl: "./account-stepper.component.html",
-  styleUrls: ["./account-stepper.component.scss"],
+  styleUrls: ["./account-stepper.component.scss"]
 })
 export class AccountStepperComponent implements OnInit {
   @Input() safeList: Safe[];
   @Input() adminGroups: AdminGroup[];
   @Input() selectedAccount: Account;
+  @Input() roleType: RoleType;
   accountFormGroup: FormGroup;
   accountRoleType: RoleType;
   RoleType = RoleType;
@@ -23,7 +24,7 @@ export class AccountStepperComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.accountRoleType = this.selectedAccount?.role ?? RoleType.USER;
+    this.accountRoleType = this.selectedAccount?.role ?? this.roleType;
     this.accountFormGroup = this.formBuilder.group({
       safeId: [this.selectedAccount?.safeId || "", Validators.required],
       adminGroup: [

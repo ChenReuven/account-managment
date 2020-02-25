@@ -3,6 +3,7 @@ import { Account } from "../../data/models/account.model";
 import { AccountDialogComponent } from "../../components/dialogs/account-dialog/account-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { UpdateAccount } from "../../data/dto/update-account.dto";
+import { RoleType } from "../../data/models/role-type.enum";
 
 @Component({
   selector: "app-accounts-page",
@@ -19,22 +20,23 @@ export class AccountsPageComponent {
   }
 
   onAddUser() {
-    this.openDialog();
+    this.openDialog(RoleType.USER);
   }
 
   onAddAdmin() {
-    this.openDialog();
+    this.openDialog(RoleType.ADMIN);
   }
 
   onEditAccount(account: Account) {
-    this.openDialog(account);
+    this.openDialog(account.role, account);
   }
 
-  openDialog(selectedAccount?: Account): void {
+  openDialog(roleType: RoleType, selectedAccount?: Account): void {
     const dialogRef = this.dialog.open(AccountDialogComponent, {
       width: "500px",
       data: {
-        selectedAccount
+        selectedAccount,
+        roleType
       }
     });
 
