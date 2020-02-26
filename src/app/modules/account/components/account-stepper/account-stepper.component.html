@@ -1,4 +1,4 @@
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper>
   <mat-step>
     <ng-template matStepLabel>Choose Safe</ng-template>
     <app-safe-step
@@ -10,6 +10,7 @@
     <ng-template matStepLabel>Details</ng-template>
     <app-account-details-step
       [accountFormGroup]="accountFormGroup"
+      [accountRoleType]="accountRoleType"
     ></app-account-details-step>
   </mat-step>
   <mat-step *ngIf="accountRoleType === RoleType.ADMIN">
@@ -20,7 +21,10 @@
     ></app-admin-groups-step>
   </mat-step>
 </mat-horizontal-stepper>
+<!--
+ /* This is for Development Purpose Only */
 <ng-container>
     <mat-slide-toggle (change)="devMode = !devMode">Dev Mode</mat-slide-toggle>
   <pre *ngIf="devMode">{{ accountFormGroup.value | json }}</pre>
 </ng-container>
+-->

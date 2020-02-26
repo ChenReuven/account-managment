@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Account } from "../../data/models/account.model";
 import { AccountDialogComponent } from "../../components/dialogs/account-dialog/account-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
@@ -8,7 +8,7 @@ import { RoleType } from "../../data/models/role-type.enum";
 @Component({
   selector: "app-accounts-page",
   templateUrl: "./accounts-page.component.html",
-  styleUrls: ["./accounts-page.component.scss"]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountsPageComponent {
   selectedAccount: Account;

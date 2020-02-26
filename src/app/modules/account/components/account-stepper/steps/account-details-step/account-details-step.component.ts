@@ -9,6 +9,6 @@ import { RoleType } from "../../../../data/models/role-type.enum";
 })
 export class AccountDetailsStepComponent {
   @Input() accountFormGroup: FormGroup;
-  accountRoleType: RoleType;
+  @Input() accountRoleType: RoleType;
   RoleType = RoleType;
 }

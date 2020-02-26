@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Safe } from "../../../../data/models/safe.model";
 import { FormGroup } from "@angular/forms";
 
@@ -7,10 +7,7 @@ import { FormGroup } from "@angular/forms";
   templateUrl: "./safe-step.component.html",
   styleUrls: ["./safe-step.component.scss"]
 })
-export class SafeStepComponent implements OnInit {
+export class SafeStepComponent {
   @Input() safeList: Safe[];
   @Input() accountFormGroup: FormGroup;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

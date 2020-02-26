@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { Account } from "../../data/models/account.model";
 import { MatTableDataSource } from "@angular/material/table";
 import { SelectionModel } from "@angular/cdk/collections";
@@ -7,7 +7,8 @@ import { accountsMock } from "../../data/mocks/accounts.mock";
 @Component({
   selector: "app-account-list",
   templateUrl: "./account-list.component.html",
-  styleUrls: ["./account-list.component.scss"]
+  styleUrls: ["./account-list.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountListComponent implements OnInit {
   @Output() selected = new EventEmitter<Account>();
