@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Account } from "../../data/models/account.model";
 
 @Component({
   selector: "app-account-actions",

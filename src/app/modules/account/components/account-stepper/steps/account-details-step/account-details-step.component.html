@@ -1,113 +1,114 @@
 <form [formGroup]="accountFormGroup.get('details')">
-    <div>
-      <mat-form-field>
-        <mat-label>User Name</mat-label>
-        <input
-          matInput
-          placeholder="Insert User Name"
-          formControlName="userName"
-          required
-          maxlength="60"
-        />
-        <mat-error
-          *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('userName')
-                  .hasError('required')
-              "
-        >
-          User Name <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          placeholder="Insert Password"
-          formControlName="password"
-          type="password"
-          required
-          pattern="^(?=.*?[a-z])(?=.*?[A-Z]).*$"
-        />
-        <mat-error
-          *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('password')
-                  .hasError('required')
-              "
-        >
-          password is <strong>required</strong>
-        </mat-error>
-        <mat-error
-          *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('password')
-                  .hasError('pattern')
-              "
-        >
-          should have at least
-          <strong>one upper case letter and one lower case letter</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Mail</mat-label>
-        <input
-          matInput
-          placeholder="Mail"
-          formControlName="mail"
-          required
-          type="email"
-          name="email"
-        />
-        <mat-error
-          *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('mail')
-                  .hasError('required')
-              "
-        >
-          mail is <strong>required</strong>
-        </mat-error>
-        <mat-error
-          *ngIf="
-                accountFormGroup
-                  .get('details')
-                  .get('mail')
-                  .hasError('email')
-              "
-        >
-          email is <strong>invalid</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <mat-dialog-actions align="center">
-      <button mat-button matStepperPrevious>
-        Back
-      </button>
-      <button
-        mat-button
-        matStepperNext
-        *ngIf="accountRoleType === RoleType.ADMIN"
-        [disabled]="accountFormGroup.get('details').invalid"
+  <div>
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input
+        matInput
+        placeholder="Insert User Name"
+        formControlName="userName"
+        required
+        maxlength="60"
+      />
+      <mat-error
+        *ngIf="
+          accountFormGroup
+            .get('details')
+            .get('userName')
+            .hasError('required')
+        "
       >
-        Next
-      </button>
-      <button
-        mat-button
-        matStepperNext
-        *ngIf="accountRoleType !== RoleType.ADMIN"
-        [disabled]="accountFormGroup.get('details').invalid"
-        [mat-dialog-close]="accountFormGroup.value"
+        User Name <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Insert Password"
+        formControlName="password"
+        type="password"
+        required
+        pattern="^(?=.*?[a-z])(?=.*?[A-Z]).*$"
+      />
+      <mat-error
+        *ngIf="
+          accountFormGroup
+            .get('details')
+            .get('password')
+            .hasError('required')
+        "
       >
-        Submit
-      </button>
-    </mat-dialog-actions>
-  </form>
+        password is <strong>required</strong>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          accountFormGroup
+            .get('details')
+            .get('password')
+            .hasError('pattern')
+        "
+      >
+        should have at least
+        <strong>one upper case letter and one lower case letter</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Mail</mat-label>
+      <input
+        matInput
+        placeholder="Mail"
+        formControlName="mail"
+        required
+        type="email"
+        name="email"
+      />
+      <mat-error
+        *ngIf="
+          accountFormGroup
+            .get('details')
+            .get('mail')
+            .hasError('required')
+        "
+      >
+        mail is <strong>required</strong>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          accountFormGroup
+            .get('details')
+            .get('mail')
+            .hasError('email')
+        "
+      >
+        email is <strong>invalid</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions align="center">
+    <button mat-button matStepperPrevious>
+      Back
+    </button>
+    <button
+      mat-button
+      matStepperNext
+      class="account-details-next-btn"
+      *ngIf="accountRoleType === RoleType.ADMIN"
+      [disabled]="accountFormGroup.get('details').invalid"
+    >
+      Next
+    </button>
+    <button
+      mat-button
+      matStepperNext
+      *ngIf="accountRoleType !== RoleType.ADMIN"
+      [disabled]="accountFormGroup.get('details').invalid"
+      [mat-dialog-close]="accountFormGroup.value"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

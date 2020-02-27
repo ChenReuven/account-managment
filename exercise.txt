@@ -91,11 +91,11 @@ General:
 - add dynamic only when need the administrator group - V
 - component seperation - V
   - change detection - V
-- Bug: submit button
-- reusability of components
-- snackBar
-1. Data Layer?
-2. immetate mock data with observable
+- Bug: submit button - V
+- reusability of components - V
+- snackBar - V
+1. Data Layer - No
+2. immetate mock data with observable - All Data is sync
 3. showcase
 4. show design - show the process of the thinking about the solution
 5. use specator to tests (one with and one without)

@@ -19,6 +19,7 @@ import { AccountStepperComponent } from "./components/account-stepper/account-st
 import { SafeStepComponent } from "./components/account-stepper/steps/safe-step/safe-step.component";
 import { AccountDetailsStepComponent } from "./components/account-stepper/steps/account-details-step/account-details-step.component";
 import { AdminGroupsStepComponent } from "./components/account-stepper/steps/admin-groups-step/admin-groups-step.component";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AdminGroupsStepComponent } from "./components/account-stepper/steps/adm
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ]
 })
 export class AccountModule {}

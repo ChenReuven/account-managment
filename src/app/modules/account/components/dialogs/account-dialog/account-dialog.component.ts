@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
 import { safeListMock } from "../../../data/mocks/safe-list.mock";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { adminGroupsMock } from "../../../data/mocks/admin-groups.mock";
@@ -9,11 +9,10 @@ import { adminGroupsMock } from "../../../data/mocks/admin-groups.mock";
   styleUrls: ["./account-dialog.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AccountDialogComponent implements OnInit {
+export class AccountDialogComponent {
   safeList = safeListMock;
   adminGroups = adminGroupsMock;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  ngOnInit(): void {}
 }

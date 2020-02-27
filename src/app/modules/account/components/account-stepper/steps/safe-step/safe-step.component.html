@@ -1,8 +1,7 @@
-
-  <form [formGroup]="accountFormGroup">
+<form [formGroup]="accountFormGroup">
     <mat-form-field>
       <mat-label>Safe List</mat-label>
-      <mat-select formControlName="safeId">
+      <mat-select formControlName="safeId" class="safe-list">
         <mat-option>None</mat-option>
         <mat-option *ngFor="let safe of safeList" value="{{ safe.id }}">
           {{safe.name}}
@@ -22,6 +21,7 @@
         mat-button
         matStepperNext
         [disabled]="accountFormGroup.get('safeId').invalid"
+        class="safe-step-next-btn"
       >
         Next
       </button>
