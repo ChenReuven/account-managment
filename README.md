@@ -1,4 +1,63 @@
-# AccountManagment
+# Account Managment
+
+## App - Show Case
+![](assets/showcase/cyberarc-showcase.gif)
+
+## App - CI - Circle CI
+1. I add a mechanism for CI with Circle CI.
+2. Per each Pus the build will run with lint, build, and test command to 
+verify that the whole process is valid.
+
+![](assets/showcase/circleci.png)
+
+##################################################
+## Requirements
+1. As a user i want to see my accounts
+2. As a user i want to:
+- add user account
+- add admin account
+- edit account (user/admin)
+
+## Use Cases
+1. show all accounts
+2. add account (user)
+3. edit account user
+4. add account (admin)
+5. edit account admin
+
+
+## Design And Separation
+Note: All the Data is syncronice (simple)
+
+##### Mocks (Screens)
+![](assets/showcase/mocks-screens.png)
+
+##### Entities
+1. Account
+	- id
+	- userName
+	- password
+	- mail
+	- safeId
+	- role: 'Admin' | 'User'
+	- additionalInfo: {
+		administratorGroupId
+	}
+
+2. Safe
+	- id
+	- name
+
+## Implementation And Tests
+- separated to account module with sub component
+- stepper with component per step
+- Test is made not per each component but for several scenarios
+
+## Tools
+- angular material
+- spectator (testing library)
+
+# Project Installation
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
