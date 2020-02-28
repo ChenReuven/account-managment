@@ -1,12 +1,12 @@
-<mat-horizontal-stepper class="stepper">
-  <mat-step>
+<mat-horizontal-stepper linear class="stepper">
+  <mat-step [completed]="accountFormGroup.get('safeId').valid">
     <ng-template matStepLabel>Choose Safe</ng-template>
     <app-safe-step
       [safeList]="safeList"
       [accountFormGroup]="accountFormGroup"
     ></app-safe-step>
   </mat-step>
-  <mat-step>
+  <mat-step [completed]="accountFormGroup.get('details').valid">
     <ng-template matStepLabel>Details</ng-template>
     <app-account-details-step
       [accountFormGroup]="accountFormGroup"

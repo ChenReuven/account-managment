@@ -3,7 +3,7 @@
 ## App - Show Case
 ![](assets/showcase/cyberarc-showcase.gif)
 
-## App - CI - Circle CI
+#### App - CI - Circle CI
 1. I add a mechanism for CI with Circle CI.
 2. Per each Pus the build will run with lint, build, and test command to 
 verify that the whole process is valid.
@@ -53,6 +53,16 @@ Note: All the Data is syncronice (simple)
 - stepper with component per step
 - Test is made not per each component but for several scenarios
 
+#### Component Separation
+1. Account Module
+    - account actions component
+    - account list component
+    - account dialog
+        - account stepper
+            - account safe step
+            - account details fill
+            - account admin groups (Only for admin)
+
 ## Tools
 - angular material
 - spectator (testing library)
@@ -84,3 +94,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## App Images
+![](./assets/showcase/images/1.png)
+![](./assets/showcase/images/2.png)
+![](./assets/showcase/images/3.png)
+![](./assets/showcase/images/4.png)
+![](./assets/showcase/images/5.png)
