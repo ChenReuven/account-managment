@@ -27,7 +27,9 @@ verify that the whole process is valid.
 
 
 ## Design And Separation
-Note: All the Data is syncronice (simple)
+Note: 
+- All the Data is syncronice (simple)
+- I created tests not to every scenario in the app, but just show several capabilities and test types
 
 ##### Mocks (Screens)
 ![](assets/showcase/mocks-screens.png)
